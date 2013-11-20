@@ -15,6 +15,12 @@
 </head>
 
 <body>
+<?php
+	echo $_SERVER['REMOTE_ADDR'];
+	echo "<br />";
+	echo gethostbyaddr($_SERVER['REMOTE_ADDR']);
+	echo "<hr />";
+?>
 	<form action="">
 	 <label for="field1">Waarde: </label>
 	 <input type="text" id="field1" name="field1"/>
@@ -25,20 +31,20 @@
 if(!isset($_POST['submit'])) {
 	//post naar database
 	$waarde = $_POST["field1"];
-	mysql_query("INSERT INTO xxx (field1) VALUES ('".$waarde."')") or die(mysql_error());
+	mysql_query("INSERT INTO scaleit (data) VALUES ('".$waarde."')") or die(mysql_error());
 }
 
-$query = "SELECT field1 ".
-         "FROM xxx ";
+$query = "SELECT data ".
+         "FROM scaleit ";
 		 
 // execute the query 
 $result = mysql_query($query) or die('Error, query failed. ' . mysql_error());
 	
 while($row = mysql_fetch_array($result))
 	{
-		list($field1 ) = $row;
+		list($data ) = $row;
 
-		echo $field1;
+		echo $data;
 		echo "<br />";
 	}
 ?>
