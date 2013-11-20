@@ -33,11 +33,11 @@ $conn = mysql_connect("localhost","hans","hans");
 if(!isset($_POST['submit'])) {
 	//post naar database
 	$waarde = $_POST["field1"];
-	mysql_query("INSERT INTO scaleit (data) VALUES ('".$waarde."')", $conn) or die(mysql_error());
+	mysql_query("INSERT INTO records (data) VALUES ('".$waarde."')", $conn) or die(mysql_error());
 }
 
 $query = "SELECT data ".
-         "FROM scaleit ";
+         "FROM records ";
 		 
 // execute the query 
 $result = mysql_query($query, $conn) or die('Error, query failed. ' . mysql_error());
