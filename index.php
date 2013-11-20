@@ -40,7 +40,7 @@ $query = "SELECT data ".
          "FROM scaleit ";
 		 
 // execute the query 
-$result = mysql_query($query) or die('Error, query failed. ' . mysql_error());
+$result = mysql_query($query, $conn) or die('Error, query failed. ' . mysql_error());
 	
 while($row = mysql_fetch_array($result))
 	{
